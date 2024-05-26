@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Troubleshoot - Bnet Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="../sidebar.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css">
+    <!--Chart JS-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .rows {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<aside class="menu p-4 sidebar" id="sidebar">
+    <p class="menu-label"> General </p>
+    <ul class="menu-list">
+        <li>
+            <a>Home</a>
+        </li>
+    </ul>
+    <p class="menu-label"> Installation </p>
+    <ul class="menu-list">
+        <li>
+            <a>Bnet Home - 1</a>
+        </li>
+        <li>
+            <a>Bnet Home - 2</a>
+        </li>
+    </ul>
+    <p class="menu-label"> Troubleshoot </p>
+    <ul class="menu-list">
+        <li>
+            <a>Bnet Corp</a>
+        </li>
+        <li>
+            <a class="is-active">Bnet Home</a>
+        </li>
+    </ul>
+    <p class="menu-label"> Monitoring </p>
+    <ul class="menu-list">
+        <li>
+            <a>Wireless Discovery</a>
+            <ul>
+                <li>
+                    <a>Restricted Frequency</a>
+                </li>
+                <li>
+                    <a>Tunning Recomendation</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a>Metrics</a>
+            <ul>
+                <li>
+                    <a>Most Obstacle</a>
+                </li>
+                <li>
+                    <a>Repeat Complain</a>
+                </li>
+                <li>
+                    <a>Remaining Bandwidth</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a>Logout</a>
+        </li>
+    </ul>
+</aside>
+
+<body>
+    <section class="section" id="main-content">
+        <div class="buttons" id="button-toggle">
+            <button class="button is-primary">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+            <ul>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">Troubleshoot</a>
+                </li>
+                <li class="is-active">
+                    <a href="#" aria-current="page">Bnet Home</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="mb-5 has-text-centered">
+            <h1 class="title is-1"> Troubleshoot </h1>
+            <p class="subtitle is-5"> Analytics & Traffic Grapher </p>
+        </div>
+        <div class="container">
+            <form class="block" action="">
+                <div class="field has-addons">
+                    <div class="control is-expanded">
+                        <input class="input" type="text" placeholder="Search Client">
+                    </div>
+                    <div class="control">
+                        <a class="button is-primary"> Search </a>
+                    </div>
+                </div>
+            </form>
+            <div class="columns is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
+                <div class="column">
+                    <div class="card">
+                        <header class="card-header has-background-primary">
+                            <p class="card-header-title has-text-white-bis"> Data Client </p>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                <div class="columns">
+                                    <div class="column">
+                                        <strong>ID Customer</strong>
+                                        <p>CA0001803 <span class="mdi mdi-check-decagram" style="color: #00d1b2;"></span></p>
+                                    </div>
+                                    <div class="column">
+                                        <strong>ID NOC</strong>
+                                        <p>12716</p>
+                                    </div>
+                                    <div class="column">
+                                        <strong>Name</strong>
+                                        <p>Roberto_Gustinov</p>
+                                    </div>
+                                </div>
+                                <div class="columns">
+                                    <div class="column">
+                                        <strong>Limitation</strong>
+                                        <p>Gaming-75M</p>
+                                    </div>
+                                    <div class="column">
+                                        <strong>Remote Address</strong>
+                                        <p>10.201.47.244</p>
+                                    </div>
+                                    <div class="column">
+                                        <strong>Parent</strong>
+                                        <p>RH3</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <a href="#" class="card-footer-item">Remote Device</a>
+                        </footer>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <header class="card-header has-background-primary">
+                            <p class="card-header-title has-text-white-bis"> Modem Info </p>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                <div class="columns">
+                                    <div class="column">
+                                        <strong>Status</strong>
+                                        <p class="has-text-success">Working</p>
+                                    </div>
+                                    <div class="column">
+                                        <strong>Series</strong>
+                                        <p>F623</p>
+                                    </div>
+                                    <div class="column">
+                                        <strong>Serial Number</strong>
+                                        <p>ZTEGC7F7743A</p>
+                                    </div>
+                                </div>
+                                <div class="columns">
+                                    <div class="column">
+                                        <strong>Decibel Rx</strong>
+                                        <p>-28.23 dBm</p>
+                                    </div>
+                                    <div class="column">
+                                        <strong>Dial Up</strong>
+                                        <p>2022-12-12 03:12:40</p>
+                                    </div>
+                                    <div class="column">
+                                        <strong>Down</strong>
+                                        <p>2022-12-12 03:12:40</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <footer class="card-footer">
+                            <a href="#" class="card-footer-item">Remote OLT</a>
+                        </footer> -->
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column">
+                    <div class="box">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <header class="card-header has-background-primary">
+                            <p class="card-header-title has-text-white-bis"> Analytics </p>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                <div class="columns">
+                                    <div class="column">
+                                        <strong>Ping</strong>
+                                        <p class="has-text-success">Normal</p>
+                                    </div>
+                                    <div class="column">
+                                        <strong>Upload</strong>
+                                        <p>25 Mbps</p>
+                                    </div>
+                                    <div class="column">
+                                        <strong>Download</strong>
+                                        <p>0.10 Mbps</p>
+                                    </div>
+                                </div>
+                                <div class="columns">
+                                    <div class="column">
+                                        <strong>Connected</strong>
+                                        <p>3 Device</p>
+                                    </div>
+                                    <div class="column">
+                                        <strong>SSID</strong>
+                                        <p>No Name</p>
+                                    </div>
+                                    <div class="column">
+                                        <strong>Password</strong>
+                                        <p>NoPass</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <footer class="card-footer">
+                            <a href="#" class="card-footer-item">Screenshot</a>
+                        </footer> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="notification is-success is-light mt-5">
+            Primar lorem ipsum dolor sit amet, consectetur
+            adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta
+            nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis
+                venenatis</a> efficitur.
+        </div>
+
+        </div>
+    </section>
+</body>
+<script>
+    const ctx = document.getElementById("myChart");
+    new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: ["2022-12-12 22:05:52", "2022-12-12 22:05:54", "2022-12-12 22:05:57"],
+            datasets: [{
+                label: "Upload",
+                data: [12, 19, 3],
+                borderWidth: 1
+            }, {
+                label: "Download",
+                data: [1, 1, 2, 5],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            title: {
+                display: true,
+                text: "Creating Real-Time Charts with Flask"
+            },
+            tooltips: {
+                mode: "index",
+                intersect: false,
+            },
+            hover: {
+                mode: "nearest",
+                intersect: true
+            },
+            scales: {
+                xAxes: [{
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Waktu"
+                    }
+                }],
+                yAxes: [{
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Throughput (MB)"
+                    },
+                    ticks: {
+                        max: 76
+                    }
+                }]
+            }
+        }
+    });
+</script>
+<script>
+    document.getElementById("button-toggle").addEventListener("click", () => {
+        document.getElementById("sidebar").classList.toggle("active-sidebar");
+        document.getElementById("main-content").classList.toggle("active-main-content");
+    });
+</script>
+
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Installation - Bnet Home 1</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="../sidebar.css">
+</head>
+
+<aside class="menu p-4 sidebar" id="sidebar">
+    <p class="menu-label">
+        General
+    </p>
+    <ul class="menu-list">
+        <li><a>Home</a></li>
+    </ul>
+    <p class="menu-label">
+        Installation
+    </p>
+    <ul class="menu-list">
+        <li><a class="is-active">Bnet Home - 1</a></li>
+        <li><a>Bnet Home - 2</a></li>
+    </ul>
+    <p class="menu-label">
+        Troubleshoot
+    </p>
+    <ul class="menu-list">
+        <li><a>Bnet Corp</a></li>
+        <li><a>Bnet Home</a></li>
+    </ul>
+    <p class="menu-label">
+        Monitoring
+    </p>
+    <ul class="menu-list">
+        <li>
+            <a>Wireless Discovery</a>
+            <ul>
+                <li><a>Restricted Frequency</a></li>
+                <li><a>Tunning Recomendation</a></li>
+            </ul>
+        </li>
+        <li>
+            <a>Metrics</a>
+            <ul>
+                <li><a>Most Obstacle</a></li>
+                <li><a>Repeat Complain</a></li>
+                <li><a>Remaining Bandwidth</a></li>
+            </ul>
+        </li>
+
+        <li><a>Logout</a></li>
+    </ul>
+</aside>
+
+<body>
+    <section class="section" id="main-content">
+        <div class="buttons" id="button-toggle">
+            <button class="button is-primary"><i class="bi bi-list"></i></button>
+        </div>
+
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Installation</a></li>
+                <li class="is-active"><a href="#" aria-current="page">Bnet Home - 1</a></li>
+            </ul>
+        </nav>
+
+        <div class="mb-5 has-text-centered">
+            <h1 class="title is-1">
+                Installation Bhome
+            </h1>
+            <p class="subtitle is-5">
+                <span class="tag is-primary is-light is-medium">BRIDGE</span>
+            </p>
+        </div>
+
+        <div class="container is-widescreen">
+            <form class="block">
+                <div class="field-body block">
+                    <div class="field">
+                        <p class="control is-expanded">
+                            <input class="input" type="text" placeholder="Serial Number Ex : ZTECGHFXXX">
+                        </p>
+                    </div>
+                    <div class="field">
+                        <p class="control is-expanded">
+                            <input class="input" type="text" placeholder="IP Address Ex : 192.168.10.1">
+                        </p>
+                    </div>
+                    <div class="field">
+                        <p class="control is-expanded">
+                            <input class="input" type="text" placeholder="Subnetmask Ex : 255.255.255.0">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="field-body block">
+                    <div class="field">
+                        <p class="control is-expanded">
+                            <input class="input" type="text" placeholder="ID NOC Ex : 10101">
+                        </p>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <div class="select">
+                                <select>
+                                    <option>Select Limitation</option>
+                                    <option>Gaming-10M</option>
+                                    <option>Gaming-20M</option>
+                                    <option>Gaming-50M</option>
+                                    <option>Gaming-75M</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-primary">Generate</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="box" style="background-color: #383838;">
+                <pre style="background-color: #383838; color: rgb(255, 255, 255);">
+interface gpon-olt_1/1/1
+onu 1 type ZTE-F660 sn ZXCXZCXZC
+exit
+interface gpon-onu_1/1/1:1
+sn-bind enable sn
+tcont 1 name ip101 profile Gaming-10M
+gemport 1 name ip101 tcont 1
+service-port 1 vport 1 user-vlan 101 vlan 101
+exit
+pon-onu-mng gpon-onu_1/1/1:1
+service ip101 gemport 1 vlan 101
+wan-ip 1 mode static ip-profile ip101 ip-address 192.168.100.1 mask 255.255.255.0 vlan-profile vlan101 host 1
+vlan port eth_0/1 mode tag vlan 101
+security-mgmt 1 state enable mode forward protocol web
+exit</pre>
+            </div>
+        </div>
+
+    </section>
+</body>
+
+<script>
+    document.getElementById("button-toggle").addEventListener("click", () => {
+        document.getElementById("sidebar").classList.toggle("active-sidebar");
+        document.getElementById("main-content").classList.toggle("active-main-content");
+    });
+</script>
+
+</html>

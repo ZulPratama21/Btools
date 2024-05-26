@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Monitoring - Wireless Discovery</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="../sidebar.css">
+</head>
+
+<aside class="menu p-4 sidebar" id="sidebar">
+    <p class="menu-label">
+        General
+    </p>
+    <ul class="menu-list">
+        <li><a>Home</a></li>
+    </ul>
+    <p class="menu-label">
+        Installation
+    </p>
+    <ul class="menu-list">
+        <li><a>Bnet Home - 1</a></li>
+        <li><a>Bnet Home - 2</a></li>
+    </ul>
+    <p class="menu-label">
+        Troubleshoot
+    </p>
+    <ul class="menu-list">
+        <li><a>Bnet Corp</a></li>
+        <li><a>Bnet Home</a></li>
+    </ul>
+    <p class="menu-label">
+        Monitoring
+    </p>
+    <ul class="menu-list">
+        <li>
+            <a class="is-active">Wireless Discovery</a>
+            <ul>
+                <li><a>Restricted Frequency</a></li>
+                <li><a>Tunning Recomendation</a></li>
+            </ul>
+        </li>
+        <li>
+            <a>Metrics</a>
+            <ul>
+                <li><a>Most Obstacle</a></li>
+                <li><a>Repeat Complain</a></li>
+                <li><a>Remaining Bandwidth</a></li>
+            </ul>
+        </li>
+
+        <li><a>Logout</a></li>
+    </ul>
+</aside>
+
+<body>
+    <section class="section" id="main-content">
+        <div class="buttons" id="button-toggle">
+            <button class="button is-primary"><i class="bi bi-list"></i></button>
+        </div>
+
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Monitoring</a></li>
+                <li class="is-active"><a href="#" aria-current="page">Monitoring FTTH</a></li>
+            </ul>
+        </nav>
+
+        <div class="mb-5 has-text-centered">
+            <h1 class="title is-1">
+                Monitoring FTTH
+            </h1>
+            <p class="subtitle is-5">
+                Data Client <strong>BHOME</strong>
+            </p>
+
+            <nav class="level">
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Total Client</p>
+                        <p class="title">4</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">High dBm</p>
+                        <p class="title">2</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">LOS</p>
+                        <p class="title">2</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">Dyingasp</p>
+                        <p class="title">2</p>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="box" style="width: 35%; margin-left: 30%;">
+            <div class="table-container">
+                <table class="table  is-fullwidth">
+                    <thead>
+                        <tr>
+                            <th>ID Customer</th>
+                            <th>ID NOC</th>
+                            <th>GPON State</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="/public/troubleshoot/bhome?id_customer=CA0007201" target="_blank" rel="noopener noreferrer">CA0007201</a></td>
+                            <td>10203</td>
+                            <td><span class="tag is-success is-light">Working</span> <span class="tag is-warning is-light">-18 dBm</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+          </div>
+        
+
+        <article class="message is-success">
+            <div class="message-header">
+                <p>Success</p>
+                <button class="delete" aria-label="delete"></button>
+            </div>
+            <div class="message-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus
+                quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus
+                diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus.
+                Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque.
+                Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+            </div>
+        </article>
+
+    </section>
+</body>
+
+<script>
+    document.getElementById("button-toggle").addEventListener("click", () => {
+        document.getElementById("sidebar").classList.toggle("active-sidebar");
+        document.getElementById("main-content").classList.toggle("active-main-content");
+    });
+</script>
+
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B-Tools V2 - Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <style>
+        /* Custom styles here */
+        .dashboard-title {
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-subtitle {
+            margin-bottom: 1.5rem;
+        }
+
+        .dashboard-table {
+            margin-top: 2rem;
+        }
+
+        .dashboard-actions {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .dashboard-button {
+            margin-left: 1rem;
+        }
+
+        @media screen and (max-width: 768px) {
+
+            /* Responsive styles for mobile */
+            .column.is-one-quarter {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title dashboard-title">
+                    Admin Dashboard
+                </h1>
+                <h2 class="subtitle dashboard-subtitle">
+                    Welcome, Admin
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-one-quarter">
+                    <aside class="menu">
+                        <p class="menu-label">
+                            General
+                        </p>
+                        <ul class="menu-list">
+                            <li><a href="#">Dashboard</a></li>
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                        <p class="menu-label">
+                            Administration
+                        </p>
+                        <ul class="menu-list">
+                            <li><a href="#">Users</a></li>
+                            <li><a href="#">Bnet Home</a></li>
+                            <li><a href="#">Bnet Corporation</a></li>
+                            <li><a href="#">Point op Presence (POP)</a></li>
+                        </ul>
+                        <p class="menu-label">
+                            Devices
+                        </p>
+                        <ul class="menu-list">
+                            <li><a href="#">Parent Router</a></li>
+                            <li><a href="#">Wireless Access Point</a></li>
+                            <li><a href="#">Optical Line Termination</a></li>
+                        </ul>
+                        <p class="menu-label">
+                            Others
+                        </p>
+                        <ul class="menu-list">
+                            <li><a href="#">Log</a></li>
+                        </ul>
+                    </aside>
+                </div>
+                <div class="column">
+                    <h2 class="title is-4">User Management</h2>
+                    <div class="table-container">
+                        <table class="table is-striped is-fullwidth dashboard-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Username</th>
+                                    <th>Active</th>
+                                    <th>Level</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>John Doe</td>
+                                    <td>john@example.com</td>
+                                    <td>john</td>
+                                    <td>Active</td>
+                                    <td>Read</td>
+                                    <td>
+                                        <a href="#" class="button is-small is-info js-modal-trigger"
+                                            data-target="modal-js-example">Edit</a>
+                                        <a href="#" class="button is-small is-danger">Delete</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="modal-js-example" class="modal">
+                    <div class="modal-background"></div>
+
+                    <div class="modal-card">
+                        <header class="modal-card-head">
+                            <p class="modal-card-title">Edit User</p>
+                            <button class="delete" aria-label="close" @click="closeModal"></button>
+                        </header>
+                        <section class="modal-card-body">
+                            <!-- Form Edit User -->
+                            <form>
+                                <div class="field">
+                                    <label class="label">Name</label>
+                                    <div class="control">
+                                        <input class="input" type="text" v-model="editUser.name"
+                                            placeholder="Enter name">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label class="label">Email</label>
+                                    <div class="control">
+                                        <input class="input" type="email" v-model="editUser.email"
+                                            placeholder="Enter email">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label class="label">Username</label>
+                                    <div class="control">
+                                        <input class="input" type="text" v-model="editUser.username"
+                                            placeholder="Enter Username">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label class="label">Status</label>
+                                    <div class="control">
+                                        <div class="select">
+                                            <select v-model="editUser.status">
+                                                <option value="1">Active</option>
+                                                <option value="0">Deactive</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label class="label">Level</label>
+                                    <div class="control">
+                                        <div class="select">
+                                            <select v-model="editUser.role">
+                                                <option value="Admin">Admin</option>
+                                                <option value="User">User</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </section>
+                        <footer class="modal-card-foot">
+                            <button class="button is-success" @click="saveUser">Save</button>
+                            <button class="button" @click="closeModal">Cancel</button>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Functions to open and close a modal
+            function openModal($el) {
+                $el.classList.add('is-active');
+            }
+
+            function closeModal($el) {
+                $el.classList.remove('is-active');
+            }
+
+            function closeAllModals() {
+                (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+                    closeModal($modal);
+                });
+            }
+
+            // Add a click event on buttons to open a specific modal
+            (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
+                const modal = $trigger.dataset.target;
+                const $target = document.getElementById(modal);
+
+                $trigger.addEventListener('click', () => {
+                    openModal($target);
+                });
+            });
+
+            // Add a click event on various child elements to close the parent modal
+            (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
+                const $target = $close.closest('.modal');
+
+                $close.addEventListener('click', () => {
+                    closeModal($target);
+                });
+            });
+
+            // Add a keyboard event to close all modals
+            document.addEventListener('keydown', (event) => {
+                const e = event || window.event;
+
+                if (e.keyCode === 27) { // Escape key
+                    closeAllModals();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
